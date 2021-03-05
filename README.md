@@ -1,5 +1,5 @@
 # Seneca Hackathon Digital Passport Front End by Jamie Tang
-You can find the front end for this application [here](https://github.com/raymondchuu/seneca-hackathon-digital-passport-backend). This contains the code for our front end digital health card mobile app coded in React Native. 
+You can find the back end server for this application [here](https://github.com/raymondchuu/seneca-hackathon-digital-passport-backend). This contains the code for our front end digital health card mobile app coded in React Native. 
 
 ## The Problem
 We were tasked to develop a solution to a digital health card that tracks for previous covid tests/vaccinations and contact tracing. This repository provides the solution for the front end portion of the app that allows users of all technology level to use. We had to implement a user interface that was simple to use, but to make it also look visually appealing.
