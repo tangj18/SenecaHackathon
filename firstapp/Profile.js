@@ -1,15 +1,24 @@
 import React, { Component, useContext } from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+import { ScrollView } from 'react-native-gesture-handler';
 import {AuthContext} from './context.js';
+
 
 
 export const Profile = ({navigate, data}) =>{
   const {signOut} = useContext(AuthContext);
-  console.log(data.address);
+  
+
+  function dateDiff(date1, date2){
+    return Math.round((date2 - date1)/(1000*60*60*24));
+  }
+
+
+  console.log(dateDiff);
         return (
           <View style={styles.container}>
             <View style={styles.rectRow}>
-              <View style={styles.rect}></View>
+              <View style={styles.rect}><Image source={data.profileImage} style={styles.img}></Image></View>
               <View style={styles.nameColumn}>
                 <Text style={styles.name}>
                   UserID: <Text style={styles.nameValue}>{data.userId}</Text>
@@ -31,13 +40,28 @@ export const Profile = ({navigate, data}) =>{
               <View style={styles.title1}>
                 <Text style={styles.titlefont}>Covid Info</Text>
               </View>
-
+              <ScrollView style={styles.scroll}>
               <Text style={styles.header}>Covid History</Text>
-              <Text style={styles.testInfo}>{data.CovidTest}</Text>
-              <Text style={styles.testInfo}>{data.CovidResult}</Text>
+              {data.CovidTest.map((item, i)=>([
+                <Text key={item} style={styles.testInfo}>{item.date} - {item.result} </Text>,
+                <Text key={item.date} style={styles.datediff}>{'             -'} {dateDiff(new Date(item.date), new Date())} days ago</Text>
+                
+                
+              ]))}
+
               <Text style={styles.header}>Vaccination History</Text>
-              <Text style={styles.testInfo}>{data.Vaccinations}</Text>
-              <Text style={styles.testInfo}>{data.VacDate}</Text>
+              {data.Vaccinations.map((item, i)=>([
+                <Text key={item} style={styles.testInfo}>{item.Type} - {item.date}</Text>,
+                <Text key={item.date} style={styles.datediff}>{'             -'} {dateDiff(new Date(item.date), new Date())} days ago</Text>
+              ]))}
+
+
+              </ScrollView>
+              
+
+              
+              
+              
               <View style={styles.button}>
                 <TouchableOpacity
                   style={styles.loginBtn}
@@ -58,6 +82,9 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     backgroundColor: '#d7efee'
+  },
+  datediff:{
+    fontWeight: "bold"
   },
   container1: {
     flex: 1,
@@ -86,10 +113,14 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   rect: {
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: "#000000",
     width: 145,
     height: 147
+  },
+  img:{
+    width: 141,
+    height: 144
   },
   name: {
     fontWeight: 'bold',
@@ -139,7 +170,7 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 175,
-    marginLeft: 250
+    marginLeft: 250,
   },
   backdrop: {
   
@@ -165,12 +196,19 @@ const styles = StyleSheet.create({
     alignItems:"center",
     justifyContent:"center",
     marginTop:-5,
-    marginBottom: 50,
-    marginLeft: -25
-  },logout: {
+    marginBottom: 5,
+    marginLeft: -45
+  },
+  logout: {
     fontWeight: "bold",
     fontSize: 20,
-    color:"#3ea09b"
+    color:"#3ea09b",
+  },
+  scroll:{
+    marginTop: 10,
+    marginBottom: -100,
+    marginHorizontal: 10,
+    
   }
 
 });

@@ -42,6 +42,8 @@ export default function App() {
 
   const [loginToken, setloginToken] = useState(null);
   const [data, setdata] = useState(null);
+  const [tempdata, settempdata] = useState([]);
+
 
   const authContext = useMemo(() => {
     return{
@@ -98,6 +100,7 @@ export default function App() {
                 />
               ),
             }}
+            
           />
           <Tab.Screen
             name="Profile"

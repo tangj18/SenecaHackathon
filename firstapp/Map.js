@@ -18,45 +18,43 @@ export const Map = ({ navigation }) => {
         customMapStyle={[]}
         style={styles.mapView}
       ></MapView>
-      <Text style={styles.near}>  Nearby Store  </Text>
+      <Text style={styles.near}>  Nearby Stores  </Text>
       <ScrollView style={styles.scrollView}>
       <View style={styles.rect}>
-        <Text style={styles.locName}> Walmart</Text>
+        <Text style={styles.locName}> CF Fairview</Text>
       </View>
-      
-
       <View style={styles.but1}>
-        <Button color="#fb5b5a" title="Validate" onPress={() => alert("You have been added to the list")} />
+        <Button color="#fb5b5a" title="Validate" onPress={() => alert("✅ Verified! You have been added to the list.")} />
       </View>
       <View style={styles.rect}>
         <Text style={styles.locName}> Loblaws</Text>
       </View>
       <View style={styles.but1}>
-        <Button color="#fb5b5a"  title="Validate" onPress={() => alert("You have been added to the list")} />
+        <Button color="#fb5b5a"  title="Validate" onPress={() => alert("✅ Verified! You have been added to the list.")} />
       </View>
       <View style={styles.rect}>
         <Text style={styles.locName}> NoFrills</Text>
       </View>
       <View style={styles.but1}>
-        <Button color="#fb5b5a"  title="Validate" onPress={() => alert("You have been added to the list")} />
+        <Button color="#fb5b5a"  title="Validate" onPress={() => alert("❌ You do not meet the verification requirements.")} />
       </View>
       <View style={styles.rect}>
         <Text style={styles.locName}> Best Buy</Text>
       </View>
       <View style={styles.but1}>
-        <Button color="#fb5b5a"  title="Validate" onPress={() => alert("You have been added to the list")} />
+        <Button color="#fb5b5a"  title="Validate" onPress={() => alert("✅ Verified! You have been added to the list.")} />
       </View>
       <View style={styles.rect}>
         <Text style={styles.locName}> Sobeys</Text>
       </View>
       <View style={styles.but1}>
-        <Button color="#fb5b5a"  title="Validate" onPress={() => alert("You have been added to the list")} />
+        <Button color="#fb5b5a"  title="Validate" onPress={() => alert("❌ You do not meet the verification requirements.")} />
       </View>
       <View style={styles.rect}>
         <Text style={styles.locName}> Seneca</Text>
       </View>
       <View style={styles.but1}>
-        <Button color="#fb5b5a"  title="Validate" onPress={() => alert("You have been added to the list")} />
+        <Button color="#fb5b5a"  title="Validate" onPress={() => alert("❌ You do not meet the verification requirements.")} />
       </View>
 
       </ScrollView>

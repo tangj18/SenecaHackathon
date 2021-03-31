@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { AuthContext } from "./context.js";
 import logo from "./assets/logo.png";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 
 
@@ -50,10 +51,9 @@ export const SignIn = ({ navigation }) => {
         onPress={() => navigation.push("CreateAccount")}
       >
         <Text style={styles.createColor}>Create Account</Text>
+        
       </TouchableOpacity>
-      {/* <TouchableOpacity  style={styles.createBtn} onPress={() => navigation.push("CreateAccount")}>
-          <Text style={styles.createBtn}>Create Account</Text>
-        </TouchableOpacity> */}
+      
     </View>
   );
 };
@@ -72,7 +72,7 @@ export const CreateAccount = ({ navigation }) => {
         <TextInput
           placeholder="Health Card #"
           style={styles.tempPlaceholder}
-          onChangeText={() => setuserName("Jtangqwerty")}
+          onChangeText={() => setuserName("54321")}
         ></TextInput>
       </View>
       <View style={styles.inputView}>
@@ -80,7 +80,7 @@ export const CreateAccount = ({ navigation }) => {
           placeholder="Password"
           secureTextEntry={true}
           style={styles.tempPlaceholder}
-          onChangeText={() => setpass("temp")}
+          onChangeText={() => setpass("aaa")}
         ></TextInput>
       </View>
       <View style={styles.inputView}>
@@ -95,7 +95,10 @@ export const CreateAccount = ({ navigation }) => {
         onPress={() => signIn(userName, pass)}
       >
         <Text style={createSTY.createText}>Create Account</Text>
+        
       </TouchableOpacity>
+      <Text><MaterialCommunityIcons name="credit-card-scan" size={50} color={"#fb5b5a"}></MaterialCommunityIcons></Text>
+      <Text style={styles.scan}>Scan</Text>
     </View>
   );
 };
@@ -115,6 +118,7 @@ const createSTY = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  
   logo: {
     fontWeight: "bold",
     fontSize: 50,
@@ -130,7 +134,7 @@ const createSTY = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 40,
-    marginBottom: 10,
+    marginBottom: 75,
   },
   createText: {
     fontWeight: "bold",
@@ -220,4 +224,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
   },
+  scan:{
+    color: "#fb5b5a",
+    fontSize: 30
+  }
 });
